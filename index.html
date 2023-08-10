@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memesite</title>
+    <link rel="stylesheet" href="Scripts/Style/style.css"> <!-- Link to the external CSS file -->
+</head>
+
+<body bgcolor="gray">
+    <div class="center-div">
+        <button id="loadRandommemesButton">Load Random Meme</button></br>
+        <a id="downloadButton" download>
+            <button>Download Meme</button>
+        </a></div>
+        
+    </div>
+    <div id="memesContainer">
+        <img id="memesImage" src="" alt="Memes">
+        <video id="memesVideo" autoplay controls>
+            <!-- Fallback content if video is not supported -->
+            Your browser does not support the video tag.
+        </video>
+        
+    </div>
+    <p id="memeIdText">Meme ID: </p>
+    <button id="loadMemeButton">Load Specific Meme</button>
+    <script src="Scripts/JS/index.js"></script>
+</body>
+
+</html>

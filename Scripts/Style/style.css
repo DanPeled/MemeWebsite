@@ -1,0 +1,49 @@
+/* Center the buttons */
+.center-div {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+/* Center the media (image or video) at the top */
+#memesContainer {
+    position: absolute;
+    top: 50px;
+    /* Adjust the top position as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    /* Adjust the maximum width as needed */
+    text-align: justify;
+    height: calc(100vh - 50px);
+    /* Adjust to leave space for the header and center the media */
+}
+
+#memesImage,
+#memesVideo {
+    max-width: 400px;
+    max-height: 400px;
+}
+
+button {
+    border-radius: 4px;
+    height: 30px;
+}
+
+#memeIdText {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+#loadMemeButton {
+    top: 100px;
+}
