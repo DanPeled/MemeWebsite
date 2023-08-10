@@ -1,49 +1,50 @@
 /* Center the buttons */
 .center-div {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
     text-align: center;
+    margin-top: 10px;
 }
 
 /* Center the media (image or video) at the top */
 #memesContainer {
-    position: absolute;
-    top: 50px;
-    /* Adjust the top position as needed */
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    margin: 20px auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
     max-width: 600px;
-    /* Adjust the maximum width as needed */
-    text-align: justify;
-    height: calc(100vh - 50px);
-    /* Adjust to leave space for the header and center the media */
+    height: calc(100vh - 290px);
+    /* Adjust the height to leave space for the buttons and center the media */
+    text-align: center;
 }
 
 #memesImage,
 #memesVideo {
-    max-width: 400px;
-    max-height: 400px;
+    max-width: 100%;
+    max-height: 350px;
 }
 
 button {
     border-radius: 4px;
     height: 30px;
+    margin-top: 5px;
 }
 
 #memeIdText {
-    position: absolute;
-    top: 80px;
-    left: 50%;
-    transform: translateX(-50%);
     text-align: center;
+    position: relative;
+    top: -10px;
 }
 
 #loadMemeButton {
-    top: 100px;
+    margin-top: 20px;
+}
+
+/* Adjust positioning for buttons and text */
+#loadRandommemesButton,
+#downloadButton,
+#loadSpecificMemeButton,
+#memeIdText {
+    position: relative;
+    top: 10px;
+    /* Adjust the value to move the elements down */
 }
