@@ -8,7 +8,7 @@ async function loadRandomMeme() {
         const memesVideo = document.getElementById('memesVideo');
         memesVideo.currentTime = 0;
         memesVideo.pause();
-
+        memesVideo.setAttribute('src', null);
         const response = await fetch('memes/meme-list.json'); // Fetch the list of meme filenames
         const memesList = await response.json();
 
@@ -21,7 +21,7 @@ async function loadRandomMeme() {
         const randomIndex = Math.floor(Math.random() * memesList.length);
         document.getElementById('memeIdText').textContent = `Meme ID: ${randomIndex}`;
         const randomMemeFilename = memesList[randomIndex];
-        
+
         previosmeme = randomIndex;
         // Display the meme (image or video)
         const memesContainer = document.getElementById('memesContainer');
@@ -45,7 +45,6 @@ async function loadRandomMeme() {
             console.error('Unsupported meme format:', randomMemeFilename);
             return;
         }
-        delete memesList[randomIndex];
     } catch (error) {
         console.error('Error loading memes:', error);
     }
@@ -66,6 +65,7 @@ async function loadMeme(memeIndex) {
         const memesVideo = document.getElementById('memesVideo');
         memesVideo.currentTime = 0;
         memesVideo.pause();
+        memesVideo.setAttribute('src', null);
 
         const response = await fetch('memes/meme-list.json'); // Fetch the list of meme filenames
         const memesList = await response.json();
