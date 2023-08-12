@@ -8,7 +8,7 @@ async function loadRandomMeme() {
         const memesVideo = document.getElementById('memesVideo');
         memesVideo.currentTime = 0;
         memesVideo.pause();
-        memesVideo.setAttribute('src', null);
+        memesVideo.src = '';
         const response = await fetch('memes/meme-list.json'); // Fetch the list of meme filenames
         const memesList = await response.json();
 
