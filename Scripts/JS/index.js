@@ -74,8 +74,9 @@ async function loadMeme(memeIndex) {
             alert('No memes available.');
             return;
         }
-        if (memeIndex > memesList.length) {
+        if (memeIndex >= memesList.length) {
             document.getElementById('memeIdText').innerHTML = `Meme ID: <span style="color: red; font-weight: bold;">INVALID ID</span>`;
+            memesImage.src = 'internalimages/missingmeme.jpg';
             return;
         }
         // Choose a random meme filename
