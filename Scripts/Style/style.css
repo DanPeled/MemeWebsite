@@ -1,4 +1,3 @@
-/* Center the buttons */
 .center-div {
     text-align: center;
     margin-top: 10px;
@@ -47,4 +46,47 @@ button {
     position: relative;
     top: 10px;
     /* Adjust the value to move the elements down */
+}
+
+.wrap-layer {
+    position: relative;
+}
+
+.mainDiv {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    /* non-critical styles left out */
+}
+
+.background-layer svg * {
+    transition: fill 1s ease;
+}
+
+.background-layer:hover #E1 {
+    fill: #404;
+}
+
+.background-layer:hover #E2 {
+    fill: #505;
+}
+
+.background-layer:hover #E3 {
+    fill: #606;
+}
+
+.background-layer:hover #E4 {
+    fill: #707;
+}
+
+.background-layer:hover #E5 {
+    fill: #808;
+}
+
+body {
+    background: url(../../internalimages/bg.svg);
+    background-size: 1920px 1080px;
+    background-position: -150px;
 }
