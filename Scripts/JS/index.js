@@ -51,13 +51,33 @@ async function loadRandomMeme() {
 }
 async function loadMemeButtonFunc() {
     let text;
-    let id = prompt("Please Enter Meme ID:", "0");
+    let id = getMemeID();
     if (id == null || id == "") {
         return;
     } else {
         loadMeme(parseInt(id))
     }
 }
+function getMemeID() {
+    while (true) {
+      const userInput = prompt("Please Enter Meme ID:");
+      
+      // Check if the user clicked "Cancel" or entered an empty string
+      if (userInput === null || userInput === "") {
+        return null;
+      }
+      
+      // Convert the user input to a number
+      const numberValue = parseFloat(userInput);
+      
+      // Check if the conversion was successful and it's a valid number
+      if (!isNaN(numberValue)) {
+        return numberValue;
+      } else {
+        alert("Invalid input. Please enter a valid number.");
+      }
+    }
+  }
 async function loadMeme(memeIndex) {
     try {
 
@@ -74,7 +94,7 @@ async function loadMeme(memeIndex) {
             alert('No memes available.');
             return;
         }
-        if (memeIndex >= memesList.length) {
+        if (memeIndex >= memesList.length || memeIndex < 0) {
             document.getElementById('memeIdText').innerHTML = `Meme ID: <span style="color: red; font-weight: bold;">INVALID ID</span>`;
             memesImage.src = 'internalimages/missingmeme.jpg';
             return;
