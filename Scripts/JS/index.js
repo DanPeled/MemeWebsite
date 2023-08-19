@@ -17,7 +17,7 @@ async function fetchMemesList() {
 }
 
 function displayMeme(memeFilename) {
-    const isImage = /\.(jpg|png|webp|PNG)$/i.test(memeFilename);
+    const isImage = /\.(jpg|png|webp|PNG|gif|GIF)$/i.test(memeFilename);
     const isVideo = /\.(mp4|webm|mov|webmp)$/i.test(memeFilename);
 
     if (isImage) {
