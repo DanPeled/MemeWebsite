@@ -3,29 +3,64 @@
     margin-top: 10px;
 }
 
-/* Center the media (image or video) at the top */
 #memesContainer {
     position: relative;
     margin: 20px auto;
     display: flex;
+    flex-direction: column; /* Stack elements vertically on mobile */
     justify-content: center;
     align-items: center;
     max-width: 600px;
-    height: calc(100vh - 290px);
-    /* Adjust the height to leave space for the buttons and center the media */
+    height: calc(100vh - 350px); /* Adjust the height to leave space for the buttons and center the media */
     text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+    /* Adjust for larger screens */
+    #memesContainer {
+        max-width: 1000px; /* Adjust this value for larger screens */
+        height: calc(100vh - 250px); /* Adjust the height for larger screens */
+        flex-direction: row; /* Revert to horizontal layout for larger screens */
+    }
+
+    #memesImage,
+    #memesVideo {
+        max-height: 900px; /* Adjust this value to make the media containers larger */
+    }
+    #memesImage:hover,
+    #memesVideo:hover {
+        max-height: 500px; /* Adjust this value for increased zoom */
+        transition: max-height 0.5s ease; /* Add smooth transition effect */
+    }
+    
+    /* Apply zoom-out effect when not hovering */
+    #memesImage:not(:hover),
+    #memesVideo:not(:hover) {
+        max-height: 400px; /* Adjust this value for default size */
+        transition: max-height 0.5s ease; /* Add smooth transition effect */
+    }
 }
 
 #memesImage,
 #memesVideo {
     max-width: 100%;
-    max-height: 350px;
+    max-height: 300px; /* Adjust this value to make the media containers larger */
 }
 
 button {
+    border: none;
+    background-color: #626262; /* Change to your preferred button color */
+    color: white;
     border-radius: 4px;
-    height: 30px;
-    margin-top: 5px;
+    height: 40px; /* Slightly taller buttons for better visibility */
+    padding: 0 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #282828; /* Darker color on hover */
+    transform: scale(1.05); /* Slight scale-up effect on hover */
 }
 
 #memeIdText {
@@ -35,17 +70,33 @@ button {
 }
 
 #loadMemeButton {
-    margin-top: 20px;
+    margin-top: 30px; /* Increased margin for better spacing */
 }
 
-/* Adjust positioning for buttons and text */
+/* Adjust positioning for specific buttons */
+#loadSpecificMemeButton {
+    margin-top: 30px; /* Adjust the margin for this button */
+    position: relative;
+    top: 20px; /* Adjust the positioning for this button */
+}
+
+/* Adjust positioning for other elements */
 #loadRandommemesButton,
 #downloadButton,
-#loadSpecificMemeButton,
 #memeIdText {
     position: relative;
+    margin: 3px;
     top: 10px;
-    /* Adjust the value to move the elements down */
+}
+
+/* Adjust spacing for buttons on mobile */
+@media screen and (max-width: 767px) {
+    #loadRandommemesButton,
+    #downloadButton,
+    #loadSpecificMemeButton,
+    #memeIdText {
+        margin: 10px 3px; /* Increase vertical margin, reduce horizontal margin */
+    }
 }
 
 .wrap-layer {
