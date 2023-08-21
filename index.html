@@ -6,14 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memesite</title>
     <link rel="stylesheet" href="Scripts/Style/style.css"> <!-- Link to the external CSS file -->
+    <style>
+        /* Rest of your CSS styles */
+    </style>
 </head>
 
-<body bgcolor="gray">
+<body>
+    <div class="background-layer">
+    </div>
+
     <div class="center-div">
         <button id="loadRandommemesButton">Load Random Meme</button><br>
         <a id="downloadButton" download>
-            <button>Download Meme</button>
+            <button><img src="internalimages/downloadButtonIcon.png" alt="Share Meme"></button>
         </a>
+        <button id="shareButton">
+            <img src="internalimages/shareButtonIcon.png" alt="Share Meme">
+        </button>
+        
     </div>
 
     <div id="memesContainer">

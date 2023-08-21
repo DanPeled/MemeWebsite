@@ -7,6 +7,8 @@ const memesVideo = document.getElementById('memesVideo');
 const memeIdText = document.getElementById('memeIdText');
 const downloadButton = document.getElementById('downloadButton');
 const memesContainer = document.getElementById('memesContainer');
+const shareButton = document.getElementById('shareButton');
+shareButton.addEventListener('click', shareMeme);
 
 let previosmeme = 0;
 
@@ -99,5 +101,34 @@ async function loadMeme(memeIndex) {
         console.error('Error loading memes:', error);
     }
 }
+async function shareMeme() {
+    try {
+        const memesList = await fetchMemesList();
+        
+        if (memesList.length === 0) {
+            alert('No memes available.');
+            return;
+        }
+        
+        const memeFilename = memesList[previosmeme]; // Using the index of the previously loaded meme
+        const memeUrl = `memes/${memeFilename}`;
+
+        const response = await fetch(memeUrl);
+        const blob = await response.blob();
+
+        if (navigator.share) {
+            await navigator.share({
+                files: [new File([blob], memeFilename, { type: blob.type })],
+                title: 'Check out this meme!',
+                text: 'Enjoy this hilarious meme from Memesite!',
+            });
+        } else {
+            alert('Web Share API is not supported in this browser.');
+        }
+    } catch (error) {
+        console.error('Error sharing meme:', error);
+    }
+}
+
 
 loadRandomMeme();
