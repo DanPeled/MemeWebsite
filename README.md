@@ -24,7 +24,7 @@ Displays memes (images or videos) based on provided filenames. Determines the co
 This script updates the meme list stored in memes/meme-list.json.
 
 ## Work Process : 
-1.Reads existing filenames from the JSON file (if it exists).
-1.Retrieves a list of all filenames in the memes directory.
-1.Combines existing and new filenames (excluding meme-list.json).
-1.Writes the updated list back to the JSON file, ensuring the meme list remains up to date.
+- Reads existing filenames from the JSON file (if it exists).
+- Retrieves a list of all filenames in the memes directory.
+- Combines existing and new filenames (excluding meme-list.json).
+- Writes the updated list back to the JSON file, ensuring the meme list remains up to date.
