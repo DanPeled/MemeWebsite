@@ -166,6 +166,6 @@ button:hover {
 body {
     /*background image*/
     background: url(../../internalimages/bg.svg);
-    background-size: 1920px 1080px;
-    background-position: -150px;
+    background-size: cover;
+    background-position: center;
 }
