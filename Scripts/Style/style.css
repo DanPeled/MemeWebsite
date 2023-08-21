@@ -26,7 +26,6 @@
         height: calc(100vh - 250px);
         /* Adjust the height for larger screens */
         flex-direction: row;
-        /* Revert to horizontal layout for larger screens */
     }
 
     #memesImage,
