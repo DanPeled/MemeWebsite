@@ -132,3 +132,17 @@ async function shareMeme() {
 
 
 loadRandomMeme();
+
+const darkModeToggle = document.getElementById("darkModeToggle");
+const body = document.body;
+
+darkModeToggle.addEventListener("click", () => {
+    body.classList.toggle("light-mode");
+    
+    // Toggle SVG fill color by modifying the style attribute
+    if (body.classList.contains("light-mode")) {
+        body.style.setProperty("--svg-fill", "var(--svg-fill-light)");
+    } else {
+        body.style.setProperty("--svg-fill", "var(--svg-fill-dark)");
+    }
+});

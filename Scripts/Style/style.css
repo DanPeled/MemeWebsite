@@ -1,54 +1,45 @@
+/* General Styles */
 .center-div {
     text-align: center;
     margin-top: 10px;
 }
 
+/* Memes Container */
 #memesContainer {
     position: relative;
     margin: 20px auto;
-    display: flex;
-    flex-direction: column;
-    /* Stack elements vertically on mobile */
-    justify-content: center;
-    align-items: center;
     max-width: 600px;
     height: calc(100vh - 350px);
-    /* Adjust the height to leave space for the buttons and center the media */
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (min-width: 768px) {
-
-    /* Adjust for larger screens */
     #memesContainer {
         max-width: 1000px;
-        /* Adjust this value for larger screens */
         height: calc(100vh - 250px);
-        /* Adjust the height for larger screens */
         flex-direction: row;
     }
 
     #memesImage,
     #memesVideo {
         max-height: 900px;
-        /* Adjust this value to make the media containers larger */
     }
 
     #memesImage:hover,
-    #memesVideo:hover {
+    #memesVideo:hover,
+    #memesImage:not(:hover),
+    #memesVideo:not(:hover) {
         max-height: 500px;
-        /* Adjust this value for increased zoom */
         transition: max-height 0.5s ease;
-        /* Add smooth transition effect */
     }
 
-    /* Apply zoom-out effect when not hovering */
     #memesImage:not(:hover),
     #memesVideo:not(:hover) {
         max-height: 400px;
-        /* Adjust this value for default size */
-        transition: max-height 0.5s ease;
-        /* Add smooth transition effect */
     }
 }
 
@@ -56,17 +47,15 @@
 #memesVideo {
     max-width: 100%;
     max-height: 300px;
-    /* Adjust this value to make the media containers larger */
 }
 
+/* Buttons */
 button {
     border: none;
-    background-color: #626262;
-    /* Change to your preferred button color */
+    background-color: #404040; /* Slightly darker shade */
     color: white;
     border-radius: 4px;
     height: 40px;
-    /* Slightly taller buttons for better visibility */
     padding: 0 20px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -74,35 +63,15 @@ button {
 
 button:hover {
     background-color: #282828;
-    /* Darker color on hover */
     transform: scale(1.05);
-    /* Slight scale-up effect on hover */
 }
 
-#memeIdText {
-    text-align: center;
-    position: relative;
-    top: -10px;
-}
-
-#loadMemeButton {
-    margin-top: 30px;
-    /* Increased margin for better spacing */
-}
-
-/* Adjust positioning for specific buttons */
-#loadSpecificMemeButton {
-    margin-top: 5px;
-    /* Adjust the margin for this button */
-    position: relative;
-    top: 10px;
-}
-
-/* Adjust positioning for other elements */
+#memeIdText,
+#loadSpecificMemeButton,
 #loadRandommemesButton,
 #downloadButton,
-#shareButton,
-#memeIdText {
+#shareButton {
+    text-align: center;
     position: relative;
     margin: 2px;
     top: 5px;
@@ -114,19 +83,21 @@ button:hover {
     width: 17px;
 }
 
-/* Adjust spacing for buttons on mobile */
-@media screen and (max-width: 767px) {
+#loadMemeButton {
+    margin-top: 30px;
+}
 
+@media screen and (max-width: 767px) {
     #loadRandommemesButton,
     #downloadButton,
     #shareButton,
     #loadSpecificMemeButton,
     #memeIdText {
         margin: 7px 3px;
-        /* Increase vertical margin, reduce horizontal margin */
     }
 }
 
+/* Parallax Background */
 .wrap-layer {
     position: relative;
 }
@@ -143,29 +114,59 @@ button:hover {
     transition: fill 1s ease;
 }
 
-.background-layer:hover #E1 {
-    fill: #404;
-}
-
-.background-layer:hover #E2 {
-    fill: #505;
-}
-
-.background-layer:hover #E3 {
-    fill: #606;
-}
-
-.background-layer:hover #E4 {
-    fill: #707;
-}
-
+.background-layer:hover #E1,
+.background-layer:hover #E2,
+.background-layer:hover #E3,
+.background-layer:hover #E4,
 .background-layer:hover #E5 {
-    fill: #808;
+    fill: var(--hover-fill-color);
+}
+
+/* Body Styles */
+body {
+    background: url(../../internalimages/bg.svg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: "Helvetica Neue", sans-serif;
+    overflow: hidden;
+}
+:root {
+    --background-color-dark: #000;
+    --text-color-dark: #fff;
+    --background-color-light: #fff;
+    --text-color-light: #000;
+    --svg-fill: var(--svg-fill-dark); /* Default SVG fill color */
+    --button-bg-color-dark: #404040;
+    --button-bg-color-light: #f0f0f0;
+    --button-text-color-dark: #fff;
+    --button-text-color-light: #000;
 }
 
 body {
-    /*background image*/
-    background: url(../../internalimages/bg.svg);
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+    background-image: url(../../internalimages/bg.svg);
     background-size: cover;
+    background-attachment: fixed;
     background-position: center;
+}
+
+body.light-mode {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+}
+
+.background-layer svg * {
+    fill: var(--svg-fill);
+}
+
+button {
+    background-color: var(--button-bg-color-dark);
+    color: var(--button-text-color-dark);
+}
+
+body.light-mode button {
+    background-color: var(--button-bg-color-light);
+    color: var(--button-text-color-light);
 }
