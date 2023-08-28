@@ -11,12 +11,12 @@ const shareButton = document.getElementById('shareButton');
 shareButton.addEventListener('click', shareMeme);
 
 let previosmeme = 0;
-
 async function fetchMemesList() {
     const response = await fetch('memes/meme-list.json');
-    const memesList = await response.json();
+    memesList = await response.json();
     return memesList;
 }
+let  memesList = fetchMemesList();
 
 function displayMeme(memeFilename) {
     const isImage = /\.(jpg|png|webp|PNG|gif|GIF)$/i.test(memeFilename);
@@ -37,7 +37,7 @@ function displayMeme(memeFilename) {
 
 async function loadRandomMeme() {
     try {
-        const memesList = await fetchMemesList();
+        await fetchMemesList();
         memesVideo.pause();
         memesVideo.src = '';
 
@@ -75,7 +75,6 @@ async function loadMemeButtonFunc() {
 
 async function loadMeme(memeIndex) {
     try {
-        const memesList = await fetchMemesList();
         memesVideo.pause();
         memesVideo.src = '';
 
@@ -102,9 +101,7 @@ async function loadMeme(memeIndex) {
     }
 }
 async function shareMeme() {
-    try {
-        const memesList = await fetchMemesList();
-        
+    try {        
         if (memesList.length === 0) {
             alert('No memes available.');
             return;
