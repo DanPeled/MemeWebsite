@@ -1,22 +1,23 @@
-document.getElementById('loadRandommemesButton').addEventListener('click', loadRandomMeme);
-document.getElementById('loadMemeButton').addEventListener('click', loadMemeButtonFunc);
-screen.orientation.lock('portrait');
-
 const memesImage = document.getElementById('memesImage');
 const memesVideo = document.getElementById('memesVideo');
 const memeIdText = document.getElementById('memeIdText');
 const downloadButton = document.getElementById('downloadButton');
 const memesContainer = document.getElementById('memesContainer');
 const shareButton = document.getElementById('shareButton');
-shareButton.addEventListener('click', shareMeme);
 
 let previosmeme = 0;
+let memesList = fetchMemesList();
+
+document.getElementById('loadRandommemesButton').addEventListener('click', loadRandomMeme);
+document.getElementById('loadMemeButton').addEventListener('click', loadMemeButtonFunc);
+screen.orientation.lock('portrait');
+shareButton.addEventListener('click', shareMeme);
+
 async function fetchMemesList() {
     const response = await fetch('memes/meme-list.json');
     memesList = await response.json();
     return memesList;
 }
-let  memesList = fetchMemesList();
 
 function displayMeme(memeFilename) {
     const isImage = /\.(jpg|png|webp|PNG|gif|GIF|jpeg)$/i.test(memeFilename);
@@ -100,6 +101,7 @@ async function loadMeme(memeIndex) {
         console.error('Error loading memes:', error);
     }
 }
+
 async function shareMeme() {
     try {        
         if (memesList.length === 0) {
@@ -107,7 +109,7 @@ async function shareMeme() {
             return;
         }
         
-        const memeFilename = memesList[previosmeme]; // Using the index of the previously loaded meme
+        const memeFilename = memesList[previosmeme];
         const memeUrl = `memes/${memeFilename}`;
 
         const response = await fetch(memeUrl);
@@ -127,19 +129,7 @@ async function shareMeme() {
     }
 }
 
-
 loadRandomMeme();
 
-const darkModeToggle = document.getElementById("darkModeToggle");
+// const darkModeToggle = document.getElementById("darkModeToggle");
 const body = document.body;
-
-darkModeToggle.addEventListener("click", () => {
-    body.classList.toggle("light-mode");
-    
-    // Toggle SVG fill color by modifying the style attribute
-    if (body.classList.contains("light-mode")) {
-        body.style.setProperty("--svg-fill", "var(--svg-fill-light)");
-    } else {
-        body.style.setProperty("--svg-fill", "var(--svg-fill-dark)");
-    }
-});

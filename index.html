@@ -15,17 +15,16 @@
     <div class="center-div">
         <button id="loadRandommemesButton">Load Random Meme</button><br>
         <a id="downloadButton" download>
-            <button><img src="internalimages/downloadButtonIcon.png" alt="Share Meme"></button>
+            <button><img src="internalimages/downloadButtonIcon.png" alt="Download Meme"></button>
         </a>
         <button id="shareButton">
             <img src="internalimages/shareButtonIcon.png" alt="Share Meme">
         </button>
-        
     </div>
 
     <div id="memesContainer">
-        <img id="memesImage" src="" alt="Memes">
-        <video id="memesVideo" autoplay controls>
+        <img id="memesImage" src="" alt="Memes" loading="lazy">
+        <video id="memesVideo" autoplay controls loading="lazy">
             <!-- Fallback content if video is not supported -->
             Your browser does not support the video tag.
         </video>
@@ -36,7 +35,7 @@
         <button id="loadMemeButton">Load Specific Meme</button>
     </div>
 
-    <script defer src="Scripts/JS/index.js"></script>
+    <script defer src="Scripts/JS/index.js" type="module" async></script>
 </body>
 
 </html>
